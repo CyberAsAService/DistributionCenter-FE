@@ -1,7 +1,6 @@
-<div fxLayout="column" fxLayoutAlign="center stretch">
+<div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap='18px'>
     <div fxLayout="column" fxLayoutAlign="start start"  fxFlex=10>
-        <h1>What to deploy?</h1>
-       
+        <h3>What to deploy?</h3>
     
         <div *ngIf="data" class="mat-elevation-z8">
             <table mat-table [dataSource]="data" matSort>
@@ -90,7 +89,7 @@
         </div>
     </div>
     <div fxLayout="column" fxLayoutAlign="start start" fxFlex=10>
-        <h1>With what interfaces?</h1>
+        <h3>With what interfaces?</h3>
         <div *ngIf="data" class="mat-elevation-z8">
             <table mat-table [dataSource]="data" matSort>
     
@@ -134,7 +133,7 @@
         
     </div>
     <div fxLayout="column" fxLayoutAlign="start start" fxFlex=10>
-        <h1>On whom to distribute?</h1>
+        <h3>On whom to distribute?</h3>
         <div *ngIf="data" class="mat-elevation-z8">
             <table mat-table [dataSource]="data" matSort>
     
@@ -177,4 +176,7 @@
         </div>
         
     </div>
+    <ng-container>
+        <button mat-raised-button color="primary">Submit</button>
+    </ng-container>
 </div>
