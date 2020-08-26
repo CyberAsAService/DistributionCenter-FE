@@ -1,0 +1,64 @@
+<mat-card>
+<div fxLayout="column" fxLayoutAlign="space-between stretch" style=height:100%>
+    
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <h1 mat-dialog-title>Upload a package</h1>
+    </div>
+
+    
+    <div class="form-group">
+        <label for="file">Choose File</label>
+        <input type="file"
+               id="file"
+               (change)="handleFileInput($event.target.files)">
+    </div>
+    
+  
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+     
+        <mat-form-field class="form-element">
+            <input matInput formControlName="name" maxlength="25">
+            <mat-placeholder>
+              <mat-icon>subject</mat-icon>&nbsp;Name
+            </mat-placeholder>
+            <mat-error *ngIf="!name.valid && name.touched">
+              {{ titleAlert }}
+            </mat-error>
+          </mat-form-field>
+      
+       
+      <div fxLayout="column" fxLayoutAlign="space-around stretch">
+        <mat-form-field appearance="fill">
+          <mat-label>To which operating system?</mat-label>
+          <mat-select formControlName="os" required>
+            <mat-option *ngFor="let os of operatingSystems" [value]="os">
+              {{os.os}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-around stretch">
+        <mat-form-field appearance="fill">
+          <mat-label>Who can run?</mat-label>
+          <mat-select formControlName="ou" multiple required>
+            <mat-option *ngFor="let ou of ous" [value]="ou">
+              {{ou.ou}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+  
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div class="form-element">
+          <button mat-raised-button class='SubmitBtn' type="submit" [disabled]="!formGroup.valid">Submit</button>
+        </div>
+        <div>
+          <mat-spinner *ngIf='isloading' [diameter]="40"></mat-spinner>
+        </div>
+      </div>
+  
+    </form>
+  </div>
+</mat-card>

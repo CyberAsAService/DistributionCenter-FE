@@ -1,0 +1,44 @@
+/* Structure */
+table {
+    width: 100%;
+  }
+  .mat-elevation-z8 {
+      width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+:host {
+   width: 100%;
+}
+
+.buttons {
+    width: 100%;
+}
+
+.cluster {
+    min-height: 90vh;
+}
+
+.addBtn {
+    background-color: rgb(110, 201, 110);
+}
+
+.deleteBtn {
+    background-color: rgb(218, 62, 62);
+}
+
+.editBtn {
+  background-color: #FFD740;
+}
+
+.upgradeBtn {
+  background-color: orange;
+}

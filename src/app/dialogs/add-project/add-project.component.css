@@ -1,0 +1,8 @@
+.fontTrue {
+ font-size: larger;
+}
+
+.fontFalse {
+    font-size: medium;
+    color: red;
+}

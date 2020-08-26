@@ -1,0 +1,47 @@
+<div fxLayout="column" fxLayoutAlign="space-between stretch" style=height:100%>
+    <div fxLayout="row" fxLayoutAlign="end center" fxFlex=10>
+      <button mat-button mat-dialog-close cdkFocusInitial>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <h1 mat-dialog-title>Scale cluster</h1>
+    </div>
+  
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+      <div fxLayout="column" fxLayoutAlign="space-around stretch">
+
+        <mat-form-field class="form-element">
+          <input matInput formControlName="cluster_id" value='{{selector[0].metadata.name}}' disabled>
+          <mat-placeholder>
+            <mat-icon>subject</mat-icon>&nbsp;Cluster Name
+          </mat-placeholder>
+          <mat-error *ngIf="!cluster_id.valid && cluster_id.touched">
+            {{ titleAlert }}
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field class="form-element">
+          <input matInput formControlName="count" maxlength="4">
+          <mat-placeholder>
+            <mat-icon>format_list_numbered</mat-icon>&nbsp;Edit Server's Amount
+          </mat-placeholder>
+          <mat-error *ngIf="!formGroup.controls['count'].valid && formGroup.controls['count'].touched">
+            {{ getErrorCount() }}
+          </mat-error>
+        </mat-form-field>
+  
+  
+      </div>
+  
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="form-element">
+          <button mat-raised-button class='EditClusterBtn' type="submit" [disabled]="!formGroup.valid">Edit</button>
+        </div>
+        <div>
+          <mat-spinner *ngIf='isloading' [diameter]="40"></mat-spinner>
+        </div>
+      </div>
+  
+    </form>
+  </div>

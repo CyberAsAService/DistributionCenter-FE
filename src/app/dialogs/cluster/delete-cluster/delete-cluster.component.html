@@ -1,0 +1,36 @@
+<div fxLayout="column" fxLayoutAlign="space-between stretch" style=height:100%>
+    <div fxLayout="row" fxLayoutAlign="end center" fxFlex=10>
+        <button mat-button mat-dialog-close cdkFocusInitial><mat-icon>close</mat-icon></button>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center" fxFlex=70 fxLayoutGap='20px'>
+            <h1 mat-dialog-title>Are you sure to delete:</h1>
+            <label *ngIf='(selector.length == 0)'>no items to delete</label>
+        <mat-accordion *ngIf='(selector.length > 0)'>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                Items to delete ({{selector.length}})
+                </mat-panel-title>
+                </mat-expansion-panel-header>
+                    <div fxLayout="column" fxLayoutAlign="space-between center" fxFlex=80>
+                        <ng-container *ngFor='let obj of selector'>
+                            <label>{{obj.metadata.name}}</label>
+                        </ng-container>
+                    </div>
+                </mat-expansion-panel>
+              
+        
+        </mat-accordion>
+        <div fxLayout="column" fxLayoutAlign="space-around center" fxFlex=10 >
+            <button mat-flat-button color="warn" (click)='deleteClusters()'>Delete&nbsp;<mat-icon>delete</mat-icon></button>
+        </div>
+        
+
+    </div>
+
+
+</div>
+
+
+
