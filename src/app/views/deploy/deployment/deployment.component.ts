@@ -3,16 +3,13 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { AddClusterComponent } from 'src/app/dialogs/cluster/add-cluster/add-cluster.component';
-import { EditClusterComponent } from 'src/app/dialogs/cluster/edit-cluster/edit-cluster.component';
-import { SelectionModel } from '@angular/cdk/collections';
-import { DeleteClusterComponent } from 'src/app/dialogs/cluster/delete-cluster/delete-cluster.component';
 import { version } from 'punycode';
 import { of, Observable, merge, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { startWith, switchMap, map, catchError, pluck, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { SelectionModel } from '@angular/cdk/collections';
 
 export interface UserData {
   id: string;
