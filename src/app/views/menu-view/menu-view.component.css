@@ -1,0 +1,68 @@
+.background-screen {
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;  
+  }
+  
+  .background-screen::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.9);
+  }
+
+  .sideNav {
+    width: 15%;
+    background-color: aliceblue;
+    color: #002171; 
+  }
+
+.mat-toolbar-row{
+  background-color: #002171;
+  font-size: x-large;
+}
+
+
+.mat-list-item {
+  color: #002171;
+}
+
+
+.toolBar{
+  width: 100%; 
+}
+
+.logoutLink{
+   color: white;
+   text-decoration: none;
+   font-size: initial;
+}
+
+.exitIcon {
+  vertical-align: middle;
+}
+
+.list-item-active {
+  font-weight: bold;
+  /* background-color: rgb(0,33, 113) !important; */
+  background: rgb(231, 238, 245) !important;
+  /* border-style: groove !important; */
+}

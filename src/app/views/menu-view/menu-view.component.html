@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <div fxLayout="row" fxLayoutAlign="space-between center" class='toolBar'>
+            <span>Distribution server</span>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened class='sideNav'>
+        <mat-nav-list>
+                <a mat-list-item [routerLink]="['deploy']"          routerLinkActive="list-item-active"><mat-icon>bubble_chart</mat-icon>&nbsp;Deploy</a>
+                <a mat-list-item [routerLink]="['logs']"            routerLinkActive="list-item-active"><mat-icon>line_weight</mat-icon>&nbsp;Logs</a>
+                <a mat-list-item [routerLink]="['heatMap']"         routerLinkActive="list-item-active"><mat-icon>timeline</mat-icon>&nbsp;HeatMap</a>
+                <a mat-list-item [routerLink]="['repository']"      routerLinkActive="list-item-active"><mat-icon>analytics</mat-icon>&nbsp;Repository</a>
+                <a mat-list-item [routerLink]="['usersAndGroup']"   routerLinkActive="list-item-active"><mat-icon>person</mat-icon>&nbsp;users&Group management</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class='background-screen' style="background-image: url('/assets/distribution/distribution.jpg');height: 100%;">
+            <div fxLayout="column" fxLayoutAlign="space-between stretch" fxFill>
+                <router-outlet></router-outlet>
+            <!-- Footer -->
+            
+                <!-- Copyright -->
+                <div fxLayout="row" fxLayoutAlign="center center" >
+                    © 2020 Copyright:
+                    <a href=''>Distribution Server</a>
+                </div>
+                <!-- Copyright -->
+            
+            <!-- Footer -->
+            </div>
+        </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
