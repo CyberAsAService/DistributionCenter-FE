@@ -18,6 +18,7 @@ import { RepositoryComponent } from './views/repository/repository/repository.co
 import { UsersAndGroupsComponent } from './views/usersAndGroups/users-and-groups/users-and-groups.component';
 import { MatInputModule } from '@angular/material/input';
 import { MenuViewComponent } from './views/menu-view/menu-view.component';
+import { StatusComponent } from './views/status/status/status.component';
 
 
 const appRoutes: Routes = [
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   { path: 'heatMap', component: HeatMapComponent },
   { path: 'repository', component: RepositoryComponent},
   { path: 'usersAndGroup', component: UsersAndGroupsComponent},
+  { path: 'status', component: StatusComponent},
   { path: "**", redirectTo: "" }
 ];
 
@@ -38,7 +40,8 @@ const appRoutes: Routes = [
     HeatMapComponent,
     RepositoryComponent,
     UsersAndGroupsComponent,
-    MenuViewComponent
+    MenuViewComponent,
+    StatusComponent
   ],
   exports: [],
   imports: [
