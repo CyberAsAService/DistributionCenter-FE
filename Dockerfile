@@ -9,6 +9,5 @@ RUN npm run build --prod
 ### STAGE 2: Run ###
 FROM nginx:stable-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-# TODO fix to be in dist without couchbase subdir
-COPY --from=build /usr/src/app/dist/couchbase/ /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/ /usr/share/nginx/html
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
