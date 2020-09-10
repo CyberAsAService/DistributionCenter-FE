@@ -1,6 +1,13 @@
-FROM nginx:1.17.1-alpine
-COPY nginx.conf /etc/nginx/nginx.conf
+### STAGE 1: Build ###
+FROM node:latest AS build
+WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
-RUN  ["ng", "build", "--prod"]
-COPY ./dist /usr/share/nginx/html
-CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.template.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]
+COPY . .
+RUN npm run build --prod
+
+### STAGE 2: Run ###
+FROM nginx:stable-alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /usr/src/app/dist/ /usr/share/nginx/html
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
